@@ -19,6 +19,9 @@
                     attachments: file
                 });
                 console.log(response);
+                if (response.status !== 200) {
+                    alert(`Failed to create post: ${response.status}`);
+                }
             } catch (error) {
                 console.error('Error creating post:', error);
             }

@@ -15,7 +15,7 @@
 
 <div class="bg-gray-900 text-gray-100 min-h-screen">
     <header class="bg-gray-800 text-white py-4 px-6 flex justify-between items-center shadow-md">
-        <a href="/"><h1 class="text-3xl font-bold hover:scale-105 transition-transform ease-in">KaitiakiHub (Preview Branch)</h1></a>
+        <a href="/"><h1 class="text-3xl font-bold hover:scale-105 transition-transform ease-in">KaitiakiHub</h1></a>
         <div class="flex items-center space-x-4">
             {#if $authData}
                 <button class="bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 hover:scale-105 transition-transform ease-in cursor-pointer" on:click={logout}>Logout</button>

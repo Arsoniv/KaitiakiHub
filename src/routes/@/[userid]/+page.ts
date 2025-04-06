@@ -29,8 +29,6 @@ const getUser = async (userId: string): Promise<User> => {
 const getPosts = async (userId: string): Promise<Post[]> => {
 	const allPosts = await pb.collection('posts').getFullList({filter: `poster = "${userId}"`});
 
-	allPosts.sort((a, b) => b.likes - a.likes);
-
 	return await Promise.all(
 		allPosts.map(async post => ({
 			user: (await pb.collection('users').getOne(post.poster)).name,

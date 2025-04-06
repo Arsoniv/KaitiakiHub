@@ -13,8 +13,7 @@ type Post = {
 
 const getPosts = async (): Promise<Post[]> => {
 	const allPosts = await pb.collection('posts').getFullList();
-
-	allPosts.sort((a, b) => b.likes - a.likes);
+	console.log('allposts', allPosts);
 
 	return await Promise.all(
 		allPosts.map(async post => ({

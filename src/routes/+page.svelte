@@ -3,14 +3,6 @@
 
     let { data }: PageProps = $props();
 
-    type Post = {
-        id: string;
-        userId: string;
-        title: string;
-        body: string;
-        user: string;
-    }
-
     const getFormattedContent = (text: string): string =>
         text.length > 80 ? text.substring(0, 150) + "..." : text;
 

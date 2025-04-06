@@ -18,12 +18,9 @@
                     poster: pb.authStore.record.id,
                     attachments: file
                 });
-                console.log(response);
-                if (response.status !== 200) {
-                    alert(`Failed to create post: ${response.status}`);
-                }
             } catch (error) {
                 console.error('Error creating post:', error);
+                alert('Error creating post: '+ error);
             }
         } else {
             console.error('Title and body are required and you must be logged in.');

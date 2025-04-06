@@ -1,7 +1,36 @@
 <script lang="ts">
     import type { PageProps } from './$types';
+    import {pb} from "$lib/pocketbase";
 
     let { data }: PageProps = $props();
+    let body = '';
+
+    let commentSuccess = $state(false);
+
+    const submitComment = async () => {
+        if (body && pb.authStore.record) {
+            try {
+                const response = await pb.collection('comments').create({
+                    body,
+                    poster: pb.authStore.record.id,
+                    post: (await data.post).id
+                });
+
+                body = '';
+                commentSuccess = true;
+
+                setTimeout(() => commentSuccess = false, 3000);
+
+            } catch (error) {
+                console.error('Error creating post:', error);
+                alert('Error creating post: '+ error);
+            }
+        } else {
+            console.error('Body is required and you must be logged in.');
+            alert('Body is required and you must be logged in.');
+        }
+    };
+
 </script>
 
 {#await data.post}
@@ -21,6 +50,15 @@
     <p class="font-medium text-2xl">{post.body}</p>
     <hr class="mt-4 mb-2">
     <h3 class="mb-2 font-semibold">Comments...</h3>
+    {#if commentSuccess}
+        <div class="mb-4 p-2 rounded bg-green-600 text-white font-semibold">
+            Comment created successfully!
+        </div>
+    {/if}
+    <div class="justify-between flex mb-4">
+        <textarea class="px-4 py-2 rounded-lg w-full text-black font-semibold mt-4 max-h-screen h-20" bind:value={body} placeholder="Write your comment here..." cols="40"></textarea>
+        <button class=" text-center text-2xl mt-4 bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 cursor-pointer" on:click={submitComment}>Comment</button>
+    </div>
     {#each post.comments as comment}
         <div class="bg-gray-700 p-4 shadow rounded-lg mb-4 hover:bg-gray-600 transition-transform ease-in">
             {#if comment.user === post.user}

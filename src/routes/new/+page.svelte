@@ -5,6 +5,7 @@
     let body = '';
     let fileList: FileList | null = null;
     let file: File | null = null;
+    let postSuccess = false;
 
     const submitPost = async () => {
         if (title && body && pb.authStore.record) {
@@ -18,6 +19,17 @@
                     poster: pb.authStore.record.id,
                     attachments: file
                 });
+
+                // Reset form and show success message
+                title = '';
+                body = '';
+                fileList = null;
+                file = null;
+                postSuccess = true;
+
+                // Hide success message after a few seconds
+                setTimeout(() => postSuccess = false, 3000);
+
             } catch (error) {
                 console.error('Error creating post:', error);
                 alert('Error creating post: '+ error);
@@ -31,6 +43,13 @@
 
 <div class="flex justify-center items-center flex-col">
     <h1 class="text-4xl font-semibold text-center mb-4">Writing a new post:</h1>
+
+    {#if postSuccess}
+        <div class="mb-4 p-2 rounded bg-green-600 text-white font-semibold">
+            Post created successfully!
+        </div>
+    {/if}
+
     <input class="px-4 py-2 rounded-lg w-full text-black font-semibold" type="text" bind:value={title} placeholder="Write your title here..."/>
     <input class="w-full text-center text-2xl mt-4 bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 cursor-pointer" type="file" accept=".jpg,.png,.svg,.gif,.webp" bind:files={fileList}/>
     <textarea class="px-4 py-2 rounded-lg w-full text-black font-semibold mt-4 max-h-screen h-120" bind:value={body} placeholder="Write your body here..." cols="40"></textarea>

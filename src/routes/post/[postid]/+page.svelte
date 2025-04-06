@@ -13,8 +13,10 @@
         </div>
         <a href="/@/{post.userId}"><h3 class="font-semibold text-3xl text-center">{post.user}</h3></a>
     </div>
-    <hr class="mt-2 mb-2">
-    <img class="max-w-full max-h-100" src="{post.attachments}" alt="Loading Image...">
+    {#if post.attachments}
+        <hr class="mt-2 mb-2">
+        <img class="max-w-full max-h-100" src="{post.attachments}" alt="">
+    {/if}
     <hr class="mt-2 mb-4">
     <p class="font-medium text-2xl">{post.body}</p>
     <hr class="mt-4 mb-2">

@@ -30,8 +30,8 @@
             {/if}
         </div>
     </header>
-    <main class="max-w-6xl mx-auto mt-10 mb-10 p-6 bg-gray-800 shadow-lg rounded-lg">
+    <main class="max-w-6xl mx-auto mt-10 mb-10 p-6 bg-gray-800 shadow-lg rounded-lg min-h-screen">
         <slot></slot>
     </main>
-    <h6 class="font-medium opacity-50 italic text-right pb-1 pr-3">KaitiakiHub is not responsible for any user-generated content, see our <a class="underline text-blue-400" href="/tos">terms of service</a> for more details, &copy; 2025 KaitiakiHub Team. All rights reserved.</h6>
+    <h6 class="font-medium opacity-50 italic text-right pb-2 pr-3 text-white">KaitiakiHub is not responsible for any user-generated content, see our <a class="underline text-blue-400" href="/tos">terms of service</a> for more details, &copy; 2025 KaitiakiHub Team. All rights reserved.</h6>
 </div>

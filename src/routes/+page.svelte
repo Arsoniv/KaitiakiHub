@@ -18,8 +18,6 @@
     </div>
     <hr class="mt-4 border-2"/>
     <section class="mt-4 text-2xl text-white">
-        <h3 class="text-lg font-semibold mb-4">Recent Posts</h3>
-
         {#await data.posts}
             <p class="text-center opacity-50">Fetching Latest Posts...</p>
         {:then posts}

@@ -16,7 +16,7 @@
         </div>
         <a href="/new"><div class="text-4xl bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 hover:scale-105 transition-transform ease-in cursor-pointer">New Post</div></a>
     </div>
-    <hr class="mt-4" />
+    <hr class="mt-4 border-2"/>
     <section class="mt-4 text-2xl text-white">
         <h3 class="text-lg font-semibold mb-4">Recent Posts</h3>
 

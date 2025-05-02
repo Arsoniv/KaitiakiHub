@@ -11,10 +11,12 @@ type Post = {
 	user: string;
 }
 
+//returns a promise type
 const getPosts = async (): Promise<Post[]> => {
 	const allPosts = await pb.collection('posts').getFullList();
 	console.log('allposts', allPosts);
 
+	//let all child promises resolve ( for the id and name)
 	return await Promise.all(
 		allPosts.map(async post => ({
 			user: (await pb.collection('users').getOne(post.poster)).name,

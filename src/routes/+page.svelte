@@ -4,7 +4,7 @@
     let { data }: PageProps = $props();
 
     const getFormattedContent = (text: string): string =>
-        text.length > 80 ? text.substring(0, 150) + "..." : text;
+        text.length > 80 ? text.substring(0, 150) + "..." : text; // shorthand method to limit the length to 150 chars
 
 </script>
 

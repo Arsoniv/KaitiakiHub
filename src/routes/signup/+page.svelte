@@ -5,7 +5,6 @@
     let password = '';
     let passwordConfirm = '';
     let username = '';
-    let errorMessage = '';
 
     async function handleSignup() {
         try {
@@ -14,15 +13,15 @@
                 password,
                 name: username,
                 passwordConfirm
-            });
+            }); // creates a new user with provided info (conflicting info will be handled by backend)
             console.log(user)
 
-            await pb.collection("users").authWithPassword(email, password);
+            await pb.collection("users").authWithPassword(email, password); //signs the user in with their new account
 
-            window.location.href = "/";
+            window.location.href = "/"; // redirects the user to the homepage now that they are signed in
 
         } catch (error) {
-            console.log(error);
+            console.log(error); // is there's ever an error in the above signup login it will be logged and there will be no redirect.
         }
     }
 </script>
@@ -33,10 +32,6 @@
 
 <div class="max-w-sm mx-auto mt-10 mb-10 p-6 bg-gray-900 shadow-lg rounded-lg">
     <h2 class="text-xl font-semibold mb-4">Sign Up</h2>
-
-    {#if errorMessage}
-        <p class="text-red-500 text-sm">{errorMessage}</p>
-    {/if}
 
     <form on:submit|preventDefault={handleSignup}>
         <div class="mb-4">

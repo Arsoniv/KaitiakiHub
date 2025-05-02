@@ -1,8 +1,6 @@
-<script lang="ts">
-    // No props needed for now
-</script>
 
 <svelte:head>
+    <!-- Svelte method of setting a page-specific title  -->
     <title>Terms of Service | KaitiakiHub</title>
 </svelte:head>
 

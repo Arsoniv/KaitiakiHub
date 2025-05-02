@@ -7,9 +7,9 @@
 
     async function handleLogin() {
         try {
-            const authData = await pb.collection("users").authWithPassword(email, password);
+            await pb.collection("users").authWithPassword(email, password); // logs user in with provided information
 
-            window.location.href = "/";
+            window.location.href = "/"; //redirect to the home page
 
         } catch (error) {
             console.log(error);

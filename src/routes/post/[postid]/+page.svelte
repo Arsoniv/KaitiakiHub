@@ -5,21 +5,21 @@
     let { data }: PageProps = $props();
     let body = '';
 
-    let commentSuccess = $state(false);
+    let commentSuccess = $state(false); //use state to let svelte automatically rerender the user interface when the value changes (reactive state)
 
     const submitComment = async () => {
-        if (body && pb.authStore.record) {
+        if (body && pb.authStore.record) { // only let the user comment if they are logged in and there is a valid body text
             try {
-                const response = await pb.collection('comments').create({
+                await pb.collection('comments').create({
                     body,
                     poster: pb.authStore.record.id,
                     post: (await data.post).id
                 });
 
                 body = '';
-                commentSuccess = true;
+                commentSuccess = true; // activeates the comment sucsess popup
 
-                setTimeout(() => commentSuccess = false, 3000);
+                setTimeout(() => commentSuccess = false, 3000);// sets 3 second timeout to remove the comment sucsess popup
 
             } catch (error) {
                 console.error('Error creating post:', error);

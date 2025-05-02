@@ -44,7 +44,7 @@
     </div>
     {#if post.attachments}
         <hr class="mt-2 mb-2">
-        <img class="max-w-full max-h-100" src="{post.attachments}" alt="">
+        <img class="max-w-full max-h-100" src="{post.attachments}" alt="Attached image">
     {/if}
     <hr class="mt-2 mb-4">
     <p class="font-medium text-2xl">{post.body}</p>

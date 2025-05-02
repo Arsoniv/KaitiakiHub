@@ -62,7 +62,7 @@
     {#each post.comments as comment}
         <div class="bg-gray-700 p-4 shadow rounded-lg mb-4 hover:bg-gray-600 transition-transform ease-in">
             {#if comment.user === post.user}
-                <p class="font-extrabold">{comment.user} [OC]</p>
+                <p class="font-extrabold">{comment.user} [OP]</p>
             {:else}
                 <p class="font-bold">{comment.user}</p>
             {/if}

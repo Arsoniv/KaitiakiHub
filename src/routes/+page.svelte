@@ -11,8 +11,8 @@
 <section>
     <div class="flex justify-between items-center">
         <div>
-            <h2 class="text-3xl font-semibold mb-2">Welcome to KaitiakiHub</h2>
-            <p class="text-gray-300">Join the conversation, connect with people, and share your thoughts in real-time.</p>
+            <h2 class="text-4xl font-semibold mb-2">Welcome to KaitiakiHub</h2>
+            <p class="text-gray-300 text-2xl">Join the conversation, connect with people, and share your thoughts in real-time.</p>
         </div>
         <a href="/new"><div class="text-4xl bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 hover:scale-105 transition-transform ease-in cursor-pointer">New Post</div></a>
     </div>
